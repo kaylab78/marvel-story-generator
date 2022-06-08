@@ -4,13 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Additional CSS framework -->
+    <!-- Compressed foundation CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+    <!-- Compressed JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Marvel Story Generator</title>
 </head>
 <body>
+    <!--header-->
+    <header class="grid-container">
+        <div class="grid-x">
+            <div class="cell large-offset-3">
+                <h2>MARVELous Writing Prompt</h2>
+            </div>            
+        </div>   
+    </header>
+
+    <!--Series selector-->
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell large-offset-4 large-3">
+            <label> 
+                Select a series:
+                <select>
+                    <!--Enter names of series for options-->
+                    <!--Maybe leave the top option blank so it doesn't autofill an option? Will have to make sure event listener ignores the blank option or function doesn't run if null-->
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+            </label>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--These were recommended by foundation docs-->
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
