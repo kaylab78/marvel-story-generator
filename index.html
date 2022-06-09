@@ -4,11 +4,91 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Additional CSS framework -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Marvel Story Generator</title>
 </head>
 <body>
+    <!--header-->
+    <header class="grid-container-full">
+        <div class="grid-x grid-margin-x">
+            <div class="cell small-offset-1 medium-offset-2 large-offset-3">
+                <h2>MARVELous Writing Prompt</h2>
+            </div>            
+        </div>   
+    </header>
+
+    <!--Series selector-->
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x grid-padding-y">
+            <div class="cell-3 small-offset-3 medium-offset-4 large-offset-4">
+            <label> 
+                <h4>Select a series:</h4>
+                <select>
+                    <!--(Enter names of series for options)-->
+                    <!--(Maybe leave the top option blank so it doesn't autofill an option? Will have to make sure event listener ignores the blank option or that function doesn't run if null)-->
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+            </label>
+            </div>
+        </div>
+    </div>
+
+    <!--Generated characters-->
+    <!--(Delete text names and leave blank for inserting random character names)-->
+    <div class="grid-x grid-padding-x grid-margin-x grid-padding-y small-offset-1 medium-offset-2 large-offset-2">
+        <div class="cell small-5 medium-5 large-5">
+            <h3>test name 1</h3>
+        </div>
+        <div class="cell small-5 medium-5 large-5">
+            <h3>test name 2</h3>
+        </div>
+    </div>
+    
+
+    <!--accept or remix buttons-->    
+    <div class="grid-x grid-padding-x grid-margin-x small-offset-2 medium-offset-3 large-offset-4">
+        <button class="cell small-4 medium-3 large-2">
+            <h5>Accept</h5>
+        </button>
+        <button class="cell small-4 medium-3 large-2">
+            <h5>Remix</h5>
+        </button>
+    </div>
+
+    <!--generated quote-->
+    <!--(Delete lorem ipsum test content and leave blank for inserting random quote)-->
+    <div class="grid-x grid-padding-x grid-margin-x small-offset-1 medium-offset-2 large-offset-2">
+        <p class="cell small-8 medium-9 large-9">
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero assumenda dolore autem eveniet aliquid provident? Quaerat rerum cum, doloremque aliquam, dolores saepe dolor veniam error tempora laudantium necessitatibus adipisci totam."
+        </p>
+    </div>
+
+    <!--Save or clear buttons-->
+    <div class="grid-x grid-padding-x grid-margin-x small-offset-2 medium-offset-3 large-offset-4">
+        <button class="cell small-4 medium-3 large-2">
+            <h5>Save</h5>
+        </button>
+        <button class="cell small-4 medium-3 large-2">
+            <h5>Clear</h5>
+        </button>
+    </div>
+    
+
+    
+
+
+
+
+
+
+
+
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./assets/js/script.js"></script>
