@@ -9,3 +9,9 @@ header h2 {
 body {
     background-color: rgb(156, 154, 154);
 }
+
+button {
+    background-color: black;
+    color: white;
+    margin: 10px 10px;
+}
