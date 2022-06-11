@@ -1,6 +1,8 @@
 var characterListEl = document.getElementById("character-list");
 var characterOneEl = document.getElementById("character-one");
 var characterTwoEl = document.getElementById("character-two");
+var firstImageEl = document.getElementById("first-image");
+var secondImageEl = document.getElementById("second-image");
 
 // When the user clicks on a series from the dropdown menu, they are presented with two random characters from that series.
 function getCharacters() {
@@ -25,6 +27,7 @@ function getCharacters() {
 
 function randomizeCharacters (data) {
     var characterArray = data.data.results;
+    console.log(data.data.results);
 
     var firstRandom = Math.floor(Math.random() * characterArray.length);
     var secondRandom = Math.floor(Math.random() * characterArray.length);
@@ -32,8 +35,17 @@ function randomizeCharacters (data) {
     var characterOne = characterArray[firstRandom].name;
     var characterTwo = characterArray[secondRandom].name;
 
+    var firstImage = characterArray[firstRandom].thumbnail.path + "/landscape_large.jpg";
+    var secondImage = characterArray[secondRandom].thumbnail.path + "/landscape_large.jpg";
+
     characterOneEl.textContent = characterOne;
     characterTwoEl.textContent = characterTwo;
+
+    console.log(firstImage);
+    console.log(secondImage);
+
+    firstImageEl.setAttribute("src", firstImage);
+    secondImageEl.setAttribute("src", secondImage);
 }
 
 characterListEl.addEventListener("click", getCharacters);
