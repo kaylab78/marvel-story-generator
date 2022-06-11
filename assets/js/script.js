@@ -1,4 +1,5 @@
 var characterListEl = document.getElementById("character-list");
+var errorMsgEl = document.getElementById("error-message");
 var characterOneEl = document.getElementById("character-one");
 var characterTwoEl = document.getElementById("character-two");
 var firstImageEl = document.getElementById("first-image");
@@ -21,8 +22,7 @@ function getCharacters() {
                 });
             }
             else {
-                // Alerts not allowed in the project. Change this.
-                alert("There was a problem with your request")
+                errorMsgEl.textContent = "Something went wrong. Try again.";
             }
         });
 };
