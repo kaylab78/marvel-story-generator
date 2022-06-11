@@ -6,9 +6,11 @@ var secondImageEl = document.getElementById("second-image");
 
 // When the user clicks on a series from the dropdown menu, they are presented with two random characters from that series.
 function getCharacters() {
+    // The limit parameter in the API limits the number of results to 100 or less. The offset parameter skips that number of results and returns the remaining results. For example, if the limit=100 and the offset=1500, the results will start at 1500 and return 62 because there are a total of 1562 characters avaialble to choose from. In order to give the user the most character choices, we've implemented a Math.random to the offset parameter.  
+    var characterStart = Math.floor(Math.random() * 1562);
 
     // Reference: Function md5() used to generate the hash needed to call the API.
-    var apiUrl = "https://gateway.marvel.com/v1/public/characters?ts=2020&apikey=33006268417691bd580b5aafb863584a&hash=35194bc0e16921b8664b670b6ea93832";
+    var apiUrl = "https://gateway.marvel.com/v1/public/characters?&limit=100&offset=" + characterStart + "&ts=2020&apikey=33006268417691bd580b5aafb863584a&hash=35194bc0e16921b8664b670b6ea93832";
 
     fetch(apiUrl)
         .then(function(response) {
@@ -41,11 +43,10 @@ function randomizeCharacters (data) {
     characterOneEl.textContent = characterOne;
     characterTwoEl.textContent = characterTwo;
 
-    console.log(firstImage);
-    console.log(secondImage);
-
     firstImageEl.setAttribute("src", firstImage);
     secondImageEl.setAttribute("src", secondImage);
+
+    // Call function to get quote.
 }
 
 characterListEl.addEventListener("click", getCharacters);
