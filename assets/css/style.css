@@ -19,3 +19,6 @@ button {
 p {
     margin: 30px 10px;
 }
+.hidden {
+    visibility: hidden;
+}
