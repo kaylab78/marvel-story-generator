@@ -17,7 +17,7 @@
             </div>            
         </div>   
     </header>
-
+​
     <!--Series selector-->
     <div class="grid-container">
         <div class="grid-x grid-margin-x grid-padding-y">
@@ -30,7 +30,7 @@
             </div>
         </div>
     </div>
-
+​
     <!--Generated characters-->
     <!--(Delete text names and leave blank for inserting random character names)-->
     <div class="grid-x grid-padding-x grid-margin-x grid-padding-y small-offset-1 medium-offset-2 large-offset-2">
@@ -41,49 +41,50 @@
         <div class="cell small-5 medium-5 large-5">
             <h3 id="character-two"></h3>
             <img id="second-image" />
-       </div>
+        </div>
     </div>
     
-
+​
     <!--accept or remix buttons-->    
-    <div class="grid-x grid-padding-x grid-margin-x small-offset-2 medium-offset-3 large-offset-4">
-        <button class="cell small-4 medium-3 large-2">
+    <div id="choice-btns" class="grid-x grid-padding-x grid-margin-x small-offset-2 medium-offset-3 large-offset-4 hidden">
+        <button class="cell small-4 medium-3 large-2" id = "acceptBtn">
             <h5>Accept</h5>
         </button>
         <button class="cell small-4 medium-3 large-2">
             <h5>Remix</h5>
         </button>
     </div>
-
+​
     <!--generated quote-->
     <!--(Delete lorem ipsum test content and leave blank for inserting random quote)-->
     <div class="grid-x grid-padding-x grid-margin-x small-offset-1 medium-offset-2 large-offset-2">
-        <p class="cell small-8 medium-9 large-9">
+        <p class="cell small-8 medium-9 large-9" id = "generatedQuote">
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero assumenda dolore autem eveniet aliquid provident? Quaerat rerum cum, doloremque aliquam, dolores saepe dolor veniam error tempora laudantium necessitatibus adipisci totam."
         </p>
+        <p class="cell small-8 medium-9 large-9 text-center" id = "authorQuote"></p>
     </div>
-
+​
     <!--Save or clear buttons-->
     <div class="grid-x grid-padding-x grid-margin-x small-offset-2 medium-offset-3 large-offset-4">
-        <button class="cell small-4 medium-3 large-2">
+        <button class="cell small-4 medium-3 large-2" id = "quoteSv">
             <h5>Save</h5>
         </button>
-        <button class="cell small-4 medium-3 large-2">
+        <button class="cell small-4 medium-3 large-2" id = clear>
             <h5>Clear</h5>
         </button>
     </div>
-
+​
     <!--saved results-->
     <!--(Delete test text between <p></p> to fill with randomizer results)-->
     <div class="grid-x">
         <div class="cell small-8 small-offset-1 medium-6 medium-offset-1 large-3 large-offset-1">
-            <p>Character 1, Character 2 </p>
-            <p> "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero assumenda dolore autem eveniet aliquid provident? Quaerat rerum cum, doloremque aliquam, dolores saepe dolor veniam error tempora laudantium necessitatibus adipisci totam."
+            <p id="char-names"></p>
+            <p> "Lorem ipsum dolor Asit, amet consectetur adipisicing elit. Libero assumenda dolore autem eveniet aliquid provident? Quaerat rerum cum, doloremque aliquam, dolores saepe dolor veniam error tempora laudantium necessitatibus adipisci totam."
             </p>
        </div>
     </div>
-
-    
+​
+    <p>Data provided by Marvel. © 2014 Marvel</p>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./assets/js/script.js"></script>
 </body>
