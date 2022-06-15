@@ -8,9 +8,28 @@ var choiceBtnsEl= document.getElementById("choice-btns");
 var saveBtnEl = document.getElementById("quoteSv")
 var characterOne;
 var characterTwo;
+var generatedQuote = document.querySelector("#generatedQuote");
+var authorQuote = document.querySelector("#authorQuote")
+var quoteSave = document.querySelector("#quoteSv");
+var accept = document.querySelector("#acceptBtn");
+var clearBtn = document.querySelector("#clear")
+var remix = document.querySelector("#remix")
+var quote;
+var quoteAuthor;
+var savedResults 
+var charNames = document.querySelector("#char-names");
+var persistentData = document.querySelector("#persistent-data");
+var saveResultsData = {
+    charOne: characterOne,
+    charTwo: characterTwo,
+    chosenQuote: quote,
+    chosenAuthor: quoteAuthor
+}
 
 // When the user clicks on a series from the dropdown menu, they are presented with two random characters from that series.
 function getCharacters() {
+    choiceBtnsEl.classList.remove("hidden")
+
     // The limit parameter in the API limits the number of results to 100 or less. The offset parameter skips that number of results and returns the remaining results. For example, if the limit=100 and the offset=1500, the results will start at 1500 and return 62 because there are a total of 1562 characters avaialble to choose from. In order to give the user the most character choices, we've implemented a Math.random to the offset parameter.  
     var characterStart = Math.floor(Math.random() * 1562);
 
@@ -60,12 +79,6 @@ characterListEl.addEventListener("click", getCharacters);
 // When the user clicks the Remix button, they are presented with two new random characters from the same series.
 
 // When the user clicks the Accept button, a random quote appears on the screen.
-var generatedQuote = document.querySelector("#generatedQuote");
-var authorQuote = document.querySelector("#authorQuote");
-var quoteSave = document.querySelector("#quoteSv");
-var accept = document.querySelector("#acceptBtn");
-var quote;
-var quoteAuthor;
 
 accept.addEventListener("click", function(){
     quoteApi();
@@ -82,6 +95,8 @@ var quoteApi = function() {
 	.then(response => response.json())
 	// .then(response => console.log(response))
     .then(response => {
+        quoteSave.classList.remove("hidden")
+        clearBtn.classList.remove("hidden")
         quote = response.content;
         quoteAuthor = response.originator.name;
         generatedQuote.innerHTML = "'" +quote + "'";
@@ -91,36 +106,28 @@ var quoteApi = function() {
     })
 	.catch(err => console.error(err));
 }
+
+// When the user clicks the Clear button, the previous results are removed from the page.
+        // remove class hidden from save/clear
+
 // When the user clicks the Save button, the characters and quote are saved to a card at the bottom of the screen.
 
-var savedResults 
-var charNames = document.querySelector("#char-names");
-var persistentData = document.querySelector("#persistent-data");
-
-var saveResultsData = {
-    charOne: characterOne,
-    charTwo: characterTwo,
-    chosenQuote: quote,
-    chosenAuthor: quoteAuthor
-}
-
 function saveSelection () {
-    // localStorage.setItem("saved-one", JSON.stringify(characterOne));
-    // localStorage.setItem("saved-two", JSON.stringify(characterTwo));
-    // localStorage.setItem("saved-quote", JSON.stringify(quote));
-    // localStorage.setItem("saved-author", JSON.stringify(quoteAuthor));
-    console.log(savedResults,saveResultsData);
+    // console.log(savedResults,saveResultsData);
     savedResults.push(saveResultsData);
-    console.log(savedResults);
+    // console.log(savedResults);
     localStorage.setItem("saved",JSON.stringify(savedResults));
     window.location.reload();
 }
 
 function renderSelection () {
-    var dataCard = document.createElement("div)")
+    console.log(JSON.parse(localStorage.getItem("saved")))
+    for (let i = 0; i < savedResults.length; i++) {
+        var dataCard = document.createElement("div")
     dataCard.setAttribute("class", "cell small-8 small-offset-1 medium-6 medium-offset-1 large-3 large-offset-1");
-    dataCard.innerHTML = "<p><strong>" + characterOne + ", " + characterTwo + "</strong><br>" + quote + "<br>" + quoteAuthor + "</p>"
+    dataCard.innerHTML = "<p><strong>" + savedResults[i].charOne + ", " + savedResults[i].charTwo + "</strong><br>" + savedResults[i].chosenQuote + "<br>" + savedResults[i].chosenAuthor + "</p>"
     persistentData.appendChild(dataCard);
+    };
 }
 
 // savedResults.addEventListener("click", saveSelection);
@@ -131,22 +138,44 @@ var saveResults = function () {
 
 saveBtnEl.addEventListener("click", saveSelection);
 
-//$("#quoteSv").on("click",function() {
-    //localStorage.setItem(characterOneEl, characterTwoEl, generatedQuote)})
-
-    //$("character-one").val(localStorage.getItem(characterOneEl));
-    //$("character-two").val(localStorage.getItem(characterTwoEl));
-    //$("generatedQuote").val(localStorage.getItem(generatedQuote));
-
 // When the user refreshes the page, the previously saved cards stay on the page.
 function loadHistory () {
-    // var savedOne = localStorage.getItem("saved-one");
-    // var savedTwo = localStorage.getItem("saved-two");
-    // var savedQuote = localStorage.getItem("saved-quote");
-    // var savedAuthor = localStorage.getItem("saved-author");
     savedResults = JSON.parse(localStorage.getItem("saved")) || [];
 }
 
 loadHistory ();
+renderSelection ();
 
-// When the user clicks the Clear button, the previous results are removed from the page.
+// reset function to clear content on page to start over
+var reset =function () {
+    generatedQuote.innerHTML ="";
+    authorQuote.innerHTML="";
+    quoteSave.classList.add("hidden");
+    clearBtn.classList.add("hidden");
+    choiceBtnsEl.classList.add("hidden");
+    characterOneEl.textContent = "";
+    characterTwoEl.textContent = "";
+    firstImageEl.removeAttribute("src")
+    secondImageEl.removeAttribute("src")
+}
+// gets two characters at random
+characterListEl.addEventListener("click", function(){
+    getCharacters();
+    // allows to change characters before accepting
+    remix.innerHTML = "Remix Characters"
+    accept.classList.remove("hidden")
+})
+
+// accept button accepts the characters from characterListEl and generates a quote
+accept.addEventListener("click", function(){
+    quoteApi();
+    characterListEl.classList.add("hidden")
+    accept.classList.add("hidden")
+})
+// clear button resets the content
+clearBtn.addEventListener("click" , function(){
+    reset();
+    characterListEl.classList.remove("hidden")
+    remix.innerHTML = "Get Characters"
+})
+

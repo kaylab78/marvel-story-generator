@@ -20,3 +20,8 @@ p {
     margin: 30px 10px;
     text-align: center;
 }
+
+.hidden {
+    visibility: hidden;
+}
+
