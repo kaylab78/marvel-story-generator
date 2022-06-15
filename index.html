@@ -21,20 +21,14 @@
     <!--Series selector-->
     <div class="grid-container">
         <div class="grid-x grid-margin-x grid-padding-y">
+            <p>Click the button below to get two random Marvel characters to use in your story. If you're satisfied with the characters given to you, click "Accept" to see a random quote and use it in your story. If you want to choose new characters, click "Remix." Click the "Save" button at the bottom of the page to save your selection of characters and quote.</p>
             <div class="cell-3 small-offset-3 medium-offset-4 large-offset-4">
-            <label> 
-                <h4>Select a series:</h4>
-                <select>
-                    <!--(Enter names of series for options)-->
-                    <!--(Maybe leave the top option blank so it doesn't autofill an option? Will have to make sure event listener ignores the blank option or that function doesn't run if null)-->
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                </select>
-            </label>
+                <button class="cell small-4 medium-3 large-2" id="character-list">
+
+                    <h4 id ="remix">Get Characters</h4>
+
+                </button>
+                <h4 id="error-message"></h4>
             </div>
         </div>
     </div>
@@ -42,39 +36,44 @@
     <!--Generated characters-->
     <!--(Delete text names and leave blank for inserting random character names)-->
     <div class="grid-x grid-padding-x grid-margin-x grid-padding-y small-offset-1 medium-offset-2 large-offset-2">
-        <div id=char1 class="cell small-5 medium-5 large-5">
-            <h3>test name 1</h3>
+        <div class="cell small-5 medium-5 large-5">
+            <h3 id="character-one"></h3>
+            <img id="first-image" />
         </div>
-        <div id=char2 class="cell small-5 medium-5 large-5">
-            <h3>test name 2</h3>
-        </div>
+        <div class="cell small-5 medium-5 large-5">
+            <h3 id="character-two"></h3>
+            <img id="second-image" />
+       </div>
     </div>
     
 
     <!--accept or remix buttons-->    
-    <div class="grid-x grid-padding-x grid-margin-x small-offset-2 medium-offset-3 large-offset-4">
-        <button class="cell small-4 medium-3 large-2">
+    <div class="grid-x grid-padding-x grid-margin-x small-offset-2 medium-offset-3 large-offset-4 hidden" id="choice-btns">
+        <button class="cell small-4 medium-3 large-2" id = "acceptBtn">
             <h5>Accept</h5>
         </button>
-        <button class="cell small-4 medium-3 large-2">
+        <!-- removed  -->
+        <!-- <button class="cell small-4 medium-3 large-2">
             <h5>Remix</h5>
-        </button>
+        </button> -->
     </div>
+
 
     <!--generated quote-->
     <!--(Delete lorem ipsum test content and leave blank for inserting random quote)-->
     <div class="grid-x grid-padding-x grid-margin-x small-offset-1 medium-offset-2 large-offset-2">
-        <p class="cell small-8 medium-9 large-9">
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero assumenda dolore autem eveniet aliquid provident? Quaerat rerum cum, doloremque aliquam, dolores saepe dolor veniam error tempora laudantium necessitatibus adipisci totam."
+        <p class="cell small-8 medium-9 large-9 text-center" id="generatedQuote">
+        <!-- "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero assumenda dolore autem eveniet aliquid provident? Quaerat rerum cum, doloremque aliquam, dolores saepe dolor veniam error tempora laudantium necessitatibus adipisci totam." -->
         </p>
+        <p class="cell small-8 medium-9 large-9 text-center" id ="authorQuote"></p>
     </div>
 
     <!--Save or clear buttons-->
     <div class="grid-x grid-padding-x grid-margin-x small-offset-2 medium-offset-3 large-offset-4">
-        <button class="cell small-4 medium-3 large-2">
+        <button class="cell small-4 medium-3 large-2 hidden" id="quoteSv">
             <h5>Save</h5>
         </button>
-        <button class="cell small-4 medium-3 large-2">
+        <button class="cell small-4 medium-3 large-2 hidden" id = clear>
             <h5>Clear</h5>
         </button>
     </div>
