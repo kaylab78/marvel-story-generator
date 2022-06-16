@@ -74,7 +74,7 @@ function randomizeCharacters (data) {
     // Call function to get quote.
 }
 
-characterListEl.addEventListener("click", getCharacters);
+
 
 // When the user clicks the Remix button, they are presented with two new random characters from the same series.
 
@@ -162,7 +162,7 @@ var reset =function () {
 characterListEl.addEventListener("click", function(){
     getCharacters();
     // allows to change characters before accepting
-    remix.innerHTML = "Remix Characters"
+    remix.innerHTML = "REMIX CHARACTERS"
     accept.classList.remove("hidden")
 })
 
@@ -176,6 +176,6 @@ accept.addEventListener("click", function(){
 clearBtn.addEventListener("click" , function(){
     reset();
     characterListEl.classList.remove("hidden")
-    remix.innerHTML = "Get Characters"
+    remix.innerHTML = "GET CHARACTERS"
 })
 
