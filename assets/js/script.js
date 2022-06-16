@@ -77,6 +77,7 @@ function randomizeCharacters (data) {
     secondImageEl.setAttribute("src", secondImage);
 };
 
+
 // gets two characters at random
 characterListEl.addEventListener("click", function(){
     getCharacters();
@@ -84,6 +85,7 @@ characterListEl.addEventListener("click", function(){
     remix.innerHTML = "REMIX CHARACTERS";
     accept.classList.remove("hidden")
 });
+
 
 // accept button accepts the characters from characterListEl and generates a quote
 accept.addEventListener("click", function(){
