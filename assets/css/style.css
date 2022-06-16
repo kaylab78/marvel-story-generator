@@ -1,0 +1,71 @@
+@font-face {
+    font-family: Heroes;
+    src: url(./Heroes.ttf);
+
+}
+@font-face {
+    src: url(./MarvelRegular-Dj83.ttf);
+    font-family: Marvel;
+}
+header {
+    background-color: #F0131E;
+}
+
+header h2 {
+    color: white;
+    font-family: Marvel;
+    font-size: 4.5rem;
+}
+
+body {
+    /* background-color: rgb(156, 154, 154); */
+    background: url(./Marvel.jpeg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; 
+}
+
+button {
+    background-color: #F0131E;
+    color: white;
+    margin: 10px 10px;
+    border-radius: 30px;
+    padding: .2rem .2rem;
+}
+h3 {
+    font-family: Heroes; 
+    color: #ffffff;
+}
+p {
+    margin: 30px 10px;
+    text-align: center;
+    font-family: Heroes;
+    color: #FFFFFF;
+}
+
+h4 {
+    font-family: Marvel;
+    font-size: 3rem;
+}
+
+h5 {
+    font-family: Marvel;
+    font-size: 2rem;
+}
+h4 {
+    font-family: Marvel;
+    font-size: 3rem;
+}
+h5 {
+    font-family: Marvel;
+    font-size: 2rem;
+}
+.hidden {
+    visibility: hidden;
+}
+.text {
+    font-size: 1.5rem;
+}
+#generatedQuote {
+    font-size: 1.5rem;
+}

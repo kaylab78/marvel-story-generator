@@ -4,12 +4,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Additional CSS framework -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Marvel Story Generator</title>
+    <title>MARVEL-ous Writing Prompt</title>
 </head>
 <body>
+    <!--header-->
+    <header class="grid-container-full">
+        <div class="grid-x grid-margin-x">
+            <div class="cell small-offset-1 medium-offset-2 large-offset-3">
+                <h2>MARVEL-OUS WRITING PROMPT</h2>
+            </div>            
+        </div>   
+    </header>
+
+    <!--Instruction and character selection-->
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x grid-padding-y">
+            <p class="text">Click the button below to get two random Marvel characters to use in your story. If you're satisfied with the characters given to you, click "Accept" to see a random quote and use it in your story. If you want to choose new characters, click "Remix Characters." Click the "Save" button at the bottom of the page to save your selection of characters and quote.</p>
+            <div class="cell-3 small-offset-3 medium-offset-4 large-offset-4">
+                <button class="cell small-4 medium-3 large-2" id="character-list">
+
+                    <h4 id ="remix">GET CHARACTERS</h4>
+
+                </button>
+                <h4 id="error-message"></h4>
+            </div>
+        </div>
+    </div>
+
+    <!--Generated characters-->
+    <div class="grid-x grid-padding-x grid-margin-x grid-padding-y small-offset-1 medium-offset-2 large-offset-2">
+        <div class="cell small-5 medium-5 large-5">
+            <h3 id="character-one"></h3>
+            <img id="first-image" />
+        </div>
+        <div class="cell small-5 medium-5 large-5">
+            <h3 id="character-two"></h3>
+            <img id="second-image" />
+       </div>
+    </div>
     
+    <!--accept button-->    
+    <div id="choice-btns" class="grid-x grid-padding-x grid-margin-x small-offset-2 medium-offset-3 large-offset-4 hidden">
+        <button class="cell small-4 medium-3 large-2" id = "acceptBtn">
+            <h5>ACCEPT</h5>
+        </button>
+    </div>
+
+    <!--generated quote-->
+    <div class="grid-x grid-padding-x grid-margin-x small-offset-1 medium-offset-2 large-offset-2">
+        <p class="cell small-8 medium-9 large-9 text-center text" id="generatedQuote"></p>
+        <p class="cell small-8 medium-9 large-9 text-center text" id ="authorQuote"></p>
+    </div>
+
+    <!--Save or clear buttons-->
+    <div class="grid-x grid-padding-x grid-margin-x small-offset-2 medium-offset-3 large-offset-4">
+        <button class="cell small-4 medium-3 large-2 hidden" id="quoteSv">
+            <h5>SAVE</h5>
+        </button>
+        <button class="cell small-4 medium-3 large-2 hidden" id = clear>
+            <h5>CLEAR</h5>
+        </button>
+    </div>
+
+    <!--saved results-->
+    <div id="persistent-data" class="grid-x"></div>
+
+    <p class="text">Data provided by Marvel. © 2014 Marvel</p>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./assets/js/script.js"></script>
 </body>
