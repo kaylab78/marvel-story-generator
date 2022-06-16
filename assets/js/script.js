@@ -26,7 +26,7 @@ var saveResultsData = {
     chosenAuthor: quoteAuthor
 };
 
-// When the user clicks on the Get Characters button, they are presented with two random characters from that series.
+// When the user clicks on a series from the dropdown menu, they are presented with two random characters from that series.
 function getCharacters() {
     choiceBtnsEl.classList.remove("hidden");
 
@@ -81,15 +81,15 @@ function randomizeCharacters (data) {
 characterListEl.addEventListener("click", function(){
     getCharacters();
     // allows to change characters before accepting
-    remix.innerHTML = "Remix Characters";
+    remix.innerHTML = "REMIX CHARACTERS";
     accept.classList.remove("hidden")
 });
 
 // accept button accepts the characters from characterListEl and generates a quote
 accept.addEventListener("click", function(){
     quoteApi();
-    characterListEl.classList.add("hidden");
-    accept.classList.add("hidden");
+    characterListEl.classList.add("hidden")
+    accept.classList.add("hidden")
 });
 
 const options = {
@@ -103,22 +103,23 @@ const options = {
 var quoteApi = function() {
     fetch('https://quotes15.p.rapidapi.com/quotes/random/', options)
 	.then(response => response.json())
+	// .then(response => console.log(response))
     .then(response => {
         quoteSave.classList.remove("hidden")
         clearBtn.classList.remove("hidden")
         quote = response.content;
         quoteAuthor = response.originator.name;
-        generatedQuote.innerHTML = "'" +quote + "'";
-        authorQuote.innerHTML = "'" +quoteAuthor+ "'";
+        generatedQuote.innerHTML = "'" + quote + "'";
+        authorQuote.innerHTML = "-" + quoteAuthor;
         saveResultsData.chosenQuote = quote;
         saveResultsData.chosenAuthor = quoteAuthor;
     })
 	.catch(err => console.error(err));
-};
+}
 
 // When the user clicks the Save button, the characters and quote are saved to a card at the bottom of the screen.
 
-function saveSelection () {
+function saveSelection() {
     // console.log(savedResults,saveResultsData);
     savedResults.push(saveResultsData);
     // console.log(savedResults);
@@ -126,32 +127,28 @@ function saveSelection () {
     window.location.reload();
 }
 
-// var saveResults = function () {
-//     localStorage.setItem("saved",JSON.stringify(saveResultsData));
-// }
-
 // Print character and quote selection to the page
-function renderSelection () {
+function renderSelection() {
     // console.log(JSON.parse(localStorage.getItem("saved")));
     for (let i = 0; i < savedResults.length; i++) {
         var dataCard = document.createElement("div");
         dataCard.setAttribute("class", "cell small-8 small-offset-1 medium-6 medium-offset-1 large-3 large-offset-1");
-        dataCard.innerHTML = "<p><strong>" + savedResults[i].charOne + " & " + savedResults[i].charTwo + "</strong><br>" + savedResults[i].chosenQuote + "<br>" + savedResults[i].chosenAuthor + "</p>";
+        dataCard.innerHTML = '<p class="text"><strong>' + savedResults[i].charOne + ' & ' + savedResults[i].charTwo + '</strong><br>' + savedResults[i].chosenQuote + '<br> -' + savedResults[i].chosenAuthor + '</p>';
         persistentData.appendChild(dataCard);
     };
 }
 
 // When the user refreshes the page, the previously saved cards stay on the page.
-function loadHistory () {
+function loadHistory() {
     savedResults = JSON.parse(localStorage.getItem("saved")) || [];
 }
 
 saveBtnEl.addEventListener("click", saveSelection);
-loadHistory ();
-renderSelection ();
+loadHistory();
+renderSelection();
 
 // reset function to clear content on page to start over
-var reset =function () {
+var reset = function() {
     generatedQuote.innerHTML ="";
     authorQuote.innerHTML="";
     quoteSave.classList.add("hidden");
@@ -167,5 +164,5 @@ var reset =function () {
 clearBtn.addEventListener("click" , function(){
     reset();
     characterListEl.classList.remove("hidden");
-    remix.innerHTML = "Get Characters";
+    remix.innerHTML = "GET CHARACTERS";
 })
