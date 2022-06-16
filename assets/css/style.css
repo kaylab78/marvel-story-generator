@@ -29,8 +29,8 @@ button {
     background-color: #F0131E;
     color: white;
     margin: 10px 10px;
-   border-radius: 30px;
-   padding: .2rem .2rem;
+    border-radius: 30px;
+    padding: .2rem .2rem;
 }
 h3 {
     font-family: Heroes; 
@@ -41,7 +41,16 @@ p {
     text-align: center;
     font-family: Heroes;
     color: #FFFFFF;
+}
 
+h4 {
+    font-family: Marvel;
+    font-size: 3rem;
+}
+
+h5 {
+    font-family: Marvel;
+    font-size: 2rem;
 }
 h4 {
     font-family: Marvel;
